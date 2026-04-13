@@ -1,5 +1,6 @@
 from langchain_openai import ChatOpenAI
 from pydantic import  SecretStr
+from langchain_core.prompts import PromptTemplate
 
 llm = ChatOpenAI(
     model="qwen3.6-plus",
@@ -17,4 +18,15 @@ llm = ChatOpenAI(
     # other params...
 )
 
-print(llm)
+# print(llm)
+
+# 创建提示词模版
+prompt_template = PromptTemplate.from_template("今天{something}真不错")
+# 模版 + 变量 =》提示词
+prompt = prompt_template.format(something="天气")
+print(prompt_template)
+
+resp = llm.stream(prompt)
+
+for chunk in resp:
+    print(chunk.content, end="")
