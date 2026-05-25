@@ -1,0 +1,59 @@
+{
+  "model": {
+    "messages": [
+      {
+        "type": "ai",
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 173,
+            "prompt_tokens": 282,
+            "total_tokens": 455,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 141,
+              "rejected_prediction_tokens": null,
+              "text_tokens": 173
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": null,
+              "text_tokens": 282
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "qwen3.6-plus",
+          "system_fingerprint": null,
+          "id": "chatcmpl-4bd8316a-9335-98b5-9cd2-78da69a999b9",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "id": "lc_run--019d9ebc-74fe-72d1-bf3e-c72d0d61ded3-0",
+        "tool_calls": [
+          {
+            "name": "check_weather",
+            "args": {
+              "location": "San Francisco"
+            },
+            "id": "call_ca5380dbab084a7d9c1c70b6",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 282,
+          "output_tokens": 173,
+          "total_tokens": 455,
+          "input_token_details": {},
+          "output_token_details": {
+            "reasoning": 141
+          }
+        }
+      }
+    ]
+  }
+}

@@ -20,14 +20,14 @@ class UserInfo(BaseModel):
 # --------------------------
 
 # 方式1：ToolStrategy（强制工具策略）
-agent1 = create_agent(
+agent1_1 = create_agent(
     model=llm,
     tools=create_calc_tools(),
     response_format=ToolStrategy(Summary),
 )
 
 # 方式2：ProviderStrategy（强制原生策略）
-agent2 = create_agent(
+agent2_1 = create_agent(
     model=llm,
     tools=create_calc_tools(),
     response_format=ProviderStrategy(Summary, strict=True),
@@ -46,7 +46,7 @@ agent3_2 = create_agent(
 )
 
 # 方式4：None（关闭结构化）
-agent4 = create_agent(
+agent4_1 = create_agent(
     model=llm,
     tools=create_calc_tools(),
     response_format=None,
@@ -73,8 +73,6 @@ response2 = agent3_2.invoke({
 # --------------------------
 print("==== 计算结果（response1）====")
 print(response1)  # 结构化输出
-print("计算结果:", response1["messages"])
-print("拿到tools的调用方式:", response1["tool_calls"])
 
 print("\n==== 用户信息（response2）====")
 print(response2["structured_response"])
